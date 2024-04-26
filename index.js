@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import tickerRoutes from "./routes/ticker.js";
+import quoteRoutes from "./routes/quote.js";
 import dotenv from "dotenv";
 
 const app = express();
@@ -32,3 +33,4 @@ mongoose
   });
 
 app.use("/api/ticker", tickerRoutes);
+app.use("/api/quote", quoteRoutes);
