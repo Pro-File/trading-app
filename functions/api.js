@@ -1,10 +1,11 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import tickerRoutes from "./routes/ticker.js";
-import quoteRoutes from "./routes/quote.js";
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import mongoose from "mongoose";
+import tickerRoutes from "../routes/ticker.js";
+import quoteRoutes from "../routes/quote.js";
 import dotenv from "dotenv";
+// const serverless = require("serverless-http");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -34,3 +35,5 @@ mongoose
 
 app.use("/api/ticker", tickerRoutes);
 app.use("/api/quote", quoteRoutes);
+
+// module.exports.handler = serverless(app);
