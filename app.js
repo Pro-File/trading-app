@@ -34,3 +34,5 @@ mongoose
 
 app.use("/api/ticker", tickerRoutes);
 app.use("/api/quote", quoteRoutes);
+
+export default app;
