@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon functions/api.js",
+    "start": "nodemon app.js",
     "build": "netlify deploy --prod"
   },
   "keywords": [],
