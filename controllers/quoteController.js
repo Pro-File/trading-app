@@ -42,3 +42,22 @@ export const getAllTickerQuotes = async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+export const getSpecificTickerQuotes = async (req, res) => {
+  try {
+    const { ticker } = req.params; // Get the ticker from the query string
+    let response = await quoteModel.find({ ticker: ticker });
+
+    if (response.length === 0) {
+      console.log("No quotes found for the search query");
+      return res.status(404).json({ message: "Results not found" });
+    }
+    return res.status(200).json({
+      total: response.length,
+      data: response,
+    });
+  } catch (err) {
+    console.error("Error finding quotes:", err);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
